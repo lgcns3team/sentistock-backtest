@@ -7,7 +7,7 @@ def floor_to_hour(dt: datetime) -> datetime:
     return dt.replace(minute=0, second=0, microsecond=0)
 
 
-def rebuild_stocks_score_history(
+def rebuild_sentiments_score_history(
     window_hours: int = 1,        # (1=최근1시간, 2=최근2시간, 6=최근6시간...)
     min_count: int = 1,           # 표본 부족 제외하고 싶으면 3 같은 값
     truncate_before: bool = True, # True면 기존 히스토리 싹 지우고 재생성
@@ -111,7 +111,7 @@ def rebuild_stocks_score_history(
 
 if __name__ == "__main__":
     # 변수는 윈도우만 조절하면됨
-    rebuild_stocks_score_history(window_hours=1, min_count=1, truncate_before=True)
+    rebuild_sentiments_score_history(window_hours=1, min_count=1, truncate_before=True)
 
     # 예) 최근 2시간 윈도우로 전체 재생성:
-    # rebuild_stocks_score_history(window_hours=2, min_count=1, truncate_before=True)
+    # rebuild_sentiments_score_history(window_hours=2, min_count=1, truncate_before=True)
